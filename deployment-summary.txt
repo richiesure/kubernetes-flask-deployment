@@ -1,0 +1,35 @@
+NAME                             READY   STATUS    RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+pod/flask-app-57996d7889-ct95w   1/1     Running   0          4m56s   10.244.0.7    minikube   <none>           <none>
+pod/flask-app-57996d7889-hgtt8   1/1     Running   0          4m49s   10.244.0.8    minikube   <none>           <none>
+pod/flask-app-57996d7889-pvk7m   1/1     Running   0          51s     10.244.0.15   minikube   <none>           <none>
+pod/flask-app-57996d7889-r2h9m   1/1     Running   0          4m42s   10.244.0.9    minikube   <none>           <none>
+pod/flask-app-57996d7889-sbsmk   1/1     Running   0          51s     10.244.0.14   minikube   <none>           <none>
+
+NAME                         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE   SELECTOR
+service/flask-app-nodeport   NodePort    10.104.19.204   <none>        80:30080/TCP   23m   app=flask-app
+service/flask-app-service    ClusterIP   10.111.3.20     <none>        80/TCP         23m   app=flask-app
+
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES               SELECTOR
+deployment.apps/flask-app   5/5     5            5           29m   flask-app    devsecops-app:v1.0   app=flask-app
+
+NAME                                   DESIRED   CURRENT   READY   AGE     CONTAINERS   IMAGES                 SELECTOR
+replicaset.apps/flask-app-57996d7889   5         5         5       4m56s   flask-app    devsecops-app:v1.0     app=flask-app,pod-template-hash=57996d7889
+replicaset.apps/flask-app-65fb6db44f   0         0         0       29m     flask-app    devsecops-app:latest   app=flask-app,pod-template-hash=65fb6db44f
+
+NAME                                                REFERENCE              TARGETS                        MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/flask-app-hpa   Deployment/flask-app   cpu: 2%/70%, memory: 35%/80%   3         10        5          15m
+
+=== ConfigMaps ===
+NAME               DATA   AGE
+flask-app-config   4      15m
+kube-root-ca.crt   1      29m
+
+=== HPA Status ===
+NAME            REFERENCE              TARGETS                        MINPODS   MAXPODS   REPLICAS   AGE
+flask-app-hpa   Deployment/flask-app   cpu: 2%/70%, memory: 35%/80%   3         10        5          15m
+
+=== Pod Metrics ===
+NAME                         CPU(cores)   MEMORY(bytes)   
+flask-app-57996d7889-ct95w   2m           45Mi            
+flask-app-57996d7889-hgtt8   2m           45Mi            
+flask-app-57996d7889-r2h9m   2m           44Mi            

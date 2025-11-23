@@ -97,6 +97,7 @@ kubectl rollout undo deployment/flask-app -n flask-application
 - Docker
 - Python Flask
 - Horizontal Pod Autoscaler v2
+<img width="1911" height="954" alt="image" src="https://github.com/user-attachments/assets/005706fb-0966-4c2b-888d-d1b5ce6d4584" />
 
 ## Status
 All components deployed and operational.

@@ -111,6 +111,8 @@ kubectl rollout undo deployment/flask-app -n flask-application
 
 ## Project Status
 All components deployed and operational. Application accessible and responding to requests. Autoscaling active and monitoring resource utilization.
+<img width="1911" height="954" alt="image" src="https://github.com/user-attachments/assets/4458a421-6c00-43b2-9009-5c4adb817a89" />
+
 
 ## Next Steps
 - Implement Ingress controller
